@@ -1,6 +1,9 @@
-
+﻿
 # Created by https://www.gitignore.io/api/python,jupyternotebook,visualstudiocode
 # Edit at https://www.gitignore.io/?templates=python,jupyternotebook,visualstudiocode
+
+### word2vec
+GoogleNews-vectors-negative300.bin.gz
 
 ### JupyterNotebook ###
 .ipynb_checkpoints
