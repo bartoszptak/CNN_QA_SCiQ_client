@@ -16,7 +16,7 @@ class Window(Frame):
         dictio = {}
         for entry in entries:
             field = entry[0]
-            text  = entry[1].get()
+            text  = entry[1].get("1.0","end-1c")
             dictio[field] = text
         odp, prop = self.smwyg.get_answer(dictio)
         self.text.insert(END, "Answer: " + str(odp) + "\n")
@@ -27,8 +27,13 @@ class Window(Frame):
         for field, val in zip(self.fields, self.default_values):
             row = Frame(root)
             lab = Label(row, width=15, text=field, anchor='w')
-            ent = Entry(row)
-            ent.insert(0, val)
+            if field=='support':
+                ent = Text(row, height=5)
+                ent.insert(END, val)
+            else:
+                ent = Text(row, height=2)
+                ent.insert(END, val)
+
             row.pack(side=TOP, fill=X, padx=5, pady=5)
             lab.pack(side=LEFT)
             ent.pack(side=RIGHT, expand=YES, fill=X)
